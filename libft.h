@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:11:46 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/06 17:20:41 by admansar         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:29:18 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int ft_tolower(int c);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
-char *strnstr(const char *haystack, const char *needle, size_t len);
+char *ft_strnstr(const char *haystack, const char *needle, size_t len);
 #endif

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:38:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/06 10:55:50 by admansar         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:51:12 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ char *ft_strchr(const char *s, int c)
 			return ((char *)s + i);
 		i++;
 	}
-	return (0);
+	if (s[i] == c)
+		return ((char *)s + i);
+	return (NULL);
 }
