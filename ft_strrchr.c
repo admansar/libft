@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 	int	r;
 
 	r = ft_strlen(s);
 	i = r;
-		while(i >= 0)
+	while (i >= 0)
 	{
 		if (s[i] == c)
 			return ((char *)s + i);
