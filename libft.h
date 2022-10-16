@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 12:11:46 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/10 03:16:51 by admansar         ###   ########.fr       */
+/*   Updated: 2022/10/16 19:13:25 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ int ft_strncmp(const char *s1, const char *s2, size_t n);
 char *ft_strdup(const char *s1);
 void *ft_calloc(size_t count, size_t size);
 int ft_atoi(const char *str);
+char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strtrim(char const *s1, char const *set);
+char *ft_itoa(int	n);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif

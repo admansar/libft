@@ -1,32 +1,43 @@
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c \
-ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c \
-ft_memmove.c ft_toupper.c ft_tolower.c ft_strchr.c ft_memchr.c ft_strrchr.c \
-ft_strnstr.c ft_strlcat.c ft_strlcpy.c ft_strncmp.c ft_calloc.c ft_memcmp.c \
-ft_strdup.c ft_atoi.c \
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: admansar <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/10 18:33:04 by admansar          #+#    #+#              #
+#    Updated: 2022/10/16 14:14:50 by admansar         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJS	= ${SRCS:.c=.o}
+NAME = libft.a
 
-NAME	= libft.a
+FLAGS = -Wall -Wextra -Werror
 
-CC		= gcc
+CC = gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+SRC = $(wildcard *.c)
 
-RM		= rm -f
+OBJ = $(SRC:.c=.o)
 
-.c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I includes
 
-${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
-			ranlib ${NAME}
+all : $(NAME)
 
-all:		${NAME}
+$(NAME) : $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+	ranlib $(NAME)
 
-clean:
-			${RM} ${OBJS}
+just_do_it :
+	$(CC) -o $(OBJ) -c $(SRC) $(FLAGS)
 
-fclean:		clean
-			${RM} ${NAME}
+clean : 
+	@rm -r *.o
+	@echo "*******************************"
+	@echo "*all *.o are not their anymore*"
 
-re:			fclean all
+fclean : clean
+	@rm -r *.a
+	@echo "*all *.c are not their either**"
+re : fclean
+	@echo "*everything is done sir adnane*"
+	@echo "*******************************"
