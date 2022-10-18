@@ -6,7 +6,7 @@
 #    By: admansar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 18:33:04 by admansar          #+#    #+#              #
-#    Updated: 2022/10/16 14:14:50 by admansar         ###   ########.fr        #
+#    Updated: 2022/10/17 23:24:38 by admansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,20 @@ just_do_it :
 	$(CC) -o $(OBJ) -c $(SRC) $(FLAGS)
 
 clean : 
+	clear
 	@rm -r *.o
-	@echo "*******************************"
-	@echo "*all *.o are not their anymore*"
+	@echo
+	@echo "9*******************************6"
+	@echo "| all *.o are not their anymore |"
 
 fclean : clean
 	@rm -r *.a
-	@echo "*all *.c are not their either**"
+	@echo "| all *.c are not their either  |"
 re : fclean
-	@echo "*everything is done sir adnane*"
-	@echo "*******************************"
+	@echo "| everything is done sir adnane |"
+	@echo "6*******************************9"
+	@echo
+	@echo "--------------------------------see---------------------------------"
+	@ls
+	@echo "--------------------------------------------------------------------" 
+
