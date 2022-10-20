@@ -6,7 +6,7 @@
 #    By: admansar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/10 18:33:04 by admansar          #+#    #+#              #
-#    Updated: 2022/10/17 23:24:38 by admansar         ###   ########.fr        #
+#    Updated: 2022/10/20 00:09:48 by admansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ $(NAME) : $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-just_do_it :
-	$(CC) -o $(OBJ) -c $(SRC) $(FLAGS)
+bonus : all
+
 
 clean : 
 	clear
