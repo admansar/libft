@@ -6,23 +6,22 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 19:00:59 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/17 23:13:12 by admansar         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:19:29 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	sc(char a, int n ,int fd)
+void	sc(int n, int fd)
 {
+	char	a;
+
 	a = '0' + n % 10;
 	write(fd, &a, 1);
 }
 
 void	ft_putnbr_fd(int nb, int fd)
 {
-	char	c;
-
-	c = 0;
 	if (nb == -2147483648)
 	{
 		ft_putnbr_fd(nb / 10, fd);
@@ -42,8 +41,8 @@ void	ft_putnbr_fd(int nb, int fd)
 	{
 		if (nb > 9)
 		{
-			ft_putnbr_fd(nb / 10 ,fd);
+			ft_putnbr_fd(nb / 10, fd);
 		}
-		sc(c, nb, fd);
+		sc(nb, fd);
 	}
 }
