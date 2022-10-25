@@ -6,74 +6,55 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:21:51 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/18 17:54:08 by admansar         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:07:03 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	za_counter(const char *str, char c)
+size_t	count_words(char const *s, char c)
 {
-	int		i;
-	size_t	counter;
-	int		r;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
-	counter = 0;
-	r = 1;
-	while (str[i] != '\0')
+	count = 0;
+	while (s[i] != '\0')
 	{
-		if (str[i] != c && r == 1)
-		{
-			counter++;
-			r = 0;
-		}
-		else if (str[i] == c)
-		{
-			r = 1;
-		}
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i])
+			count++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	return (counter);
-}
-
-char	**ft_ma_loc(char const *s, char c)
-{
-	char	**str;
-
-	if (!s)
-		return (0);
-	str = ft_calloc(za_counter(s, c) + 1, sizeof(char *));
-	if (!str)
-		return (0);
-	return (str);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	char	**split;
+	size_t	start;
+	size_t	end;
 	size_t	i;
-	char	**ptr;
-	int		n;
-	int		start;
 
+	split = (char **)malloc((count_words(s, c) + 1) * (sizeof(char *)));
+	if (!split)
+		return (NULL);
+	start = 0;
+	end = 0;
 	i = 0;
-	start = -1;
-	n = 0;
-	if (ft_ma_loc(s, c) == 0)
-		return (0);
-	ptr = ft_ma_loc(s, c);
-	while (i <= ft_strlen(s))
+	while (i < count_words(s, c))
 	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
-		{
-			ptr[n] = ft_substr(s, start, i - start);
-			start = -1;
-			n++;
-		}
+		while (s[start] == c)
+			start++;
+		end = start;
+		while (s[end] != c && s[end])
+			end++;
+		split[i] = ft_substr(s, start, (end - start));
+		start = end;
 		i++;
 	}
-	ptr[n] = 0;
-	return (ptr);
+	split[i] = 0;
+	return (split);
 }
